@@ -1,4 +1,4 @@
-FROM alpine:latest AS builder
+FROM alpine:3.18.3 AS builder
 
 RUN apk -U add build-base
 
@@ -9,7 +9,7 @@ COPY . /opt/jsonnet
 RUN cd jsonnet && \
     make
 
-FROM alpine:latest
+FROM alpine:3.18.3
 
 RUN apk add --no-cache libstdc++ 
 
